@@ -1,0 +1,21 @@
+/* تحسينات للأجهزة المحمولة */
+@media (max-width: 768px) {
+    /* تقليل حجم الصور */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* تحسين القوائم */
+    .menu {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    /* تحسين النصوص */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+} 
