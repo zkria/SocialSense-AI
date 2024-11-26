@@ -1,0 +1,151 @@
+/* المتغيرات الأساسية */
+:root {
+    --btn-radius: 8px;
+    --btn-padding: 0.75rem 1.5rem;
+    --btn-font-size: 0.875rem;
+    --btn-transition: 0.2s ease-in-out;
+    
+    /* ألوان الأزرار */
+    --btn-primary-bg: linear-gradient(135deg, #00AD68, #009688);
+    --btn-primary-hover: linear-gradient(135deg, #008c54, #00796b);
+    --btn-outline-border: #00AD68;
+    --btn-outline-hover: #e8f5e9;
+}
+
+/* القاعدة الأساسية للأزرار */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    font-size: var(--btn-font-size);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--btn-transition);
+    position: relative;
+    overflow: hidden;
+    gap: 0.5rem;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* الزر الرئيسي */
+.btn-primary {
+    background: var(--btn-primary-bg);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 173, 104, 0.1);
+}
+
+.btn-primary:hover {
+    background: var(--btn-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 173, 104, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 173, 104, 0.1);
+}
+
+/* الزر الثانوي (Outline) */
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--btn-outline-border);
+    color: var(--btn-outline-border);
+}
+
+.btn-outline:hover {
+    background: var(--btn-outline-hover);
+    border-color: var(--btn-outline-border);
+    color: var(--btn-outline-border);
+}
+
+.btn-outline:active {
+    background: #d7ecd9;
+}
+
+/* تأثير الموجة عند النقر */
+.btn::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+.btn:active::after {
+    transform: scale(3);
+    opacity: 0;
+    transition: 0s;
+}
+
+/* أحجام الأزرار */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+/* حالة التعطيل */
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* الوضع الداكن */
+[data-theme="dark"] {
+    --btn-outline-hover: rgba(0, 173, 104, 0.1);
+}
+
+[data-theme="dark"] .btn-primary {
+    box-shadow: 0 0 15px rgba(0, 173, 104, 0.3);
+}
+
+[data-theme="dark"] .btn-outline {
+    border-color: #00AD68;
+    color: #00AD68;
+}
+
+/* تحسينات للموبايل */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.8125rem;
+    }
+}
+
+/* دعم RTL */
+[dir="rtl"] .btn {
+    direction: rtl;
+}
+
+/* تحسين إمكانية الوصول */
+.btn:focus-visible {
+    outline: 2px solid #00AD68;
+    outline-offset: 2px;
+}
+
+/* دعم أيقونات FontAwesome */
+.btn i {
+    font-size: 1em;
+}
+
+.btn-icon-only {
+    padding: 0.75rem;
+    width: 42px;
+    height: 42px;
+} 

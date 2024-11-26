@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="لوحة تحكم SocialSense - إدارة حسابات التواصل الاجتماعي بذكاء">
+    <title>لوحة التحكم | SocialSense AI</title>
+    
+    <!-- الأيقونات والشعارات -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- الأنماط -->
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    
+    <!-- إضافة متغيرات CSS -->
+    <style>
+        :root {
+            /* ألوان أساسية */
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            
+            /* ألوان لوحة التحكم */
+            --sidebar-bg: #1e293b;
+            --sidebar-hover: #334155;
+            --header-bg: #ffffff;
+            --content-bg: #f1f5f9;
+            
+            /* ألوان العناصر */
+            --nav-link-color: #e2e8f0;
+            --nav-link-hover: #f8fafc;
+            --badge-bg: #ef4444;
+            --border-color: #e5e7eb;
+            
+            /* الظلال */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] {
+            --header-bg: #1e293b;
+            --content-bg: #0f172a;
+            --border-color: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+        }
+    </style>
+    
+    <!-- إضافة ملف الترجمات -->
+    <script src="/assets/js/i18n/dashboard-translations.js"></script>
+</head>
+
+<body class="dashboard-layout">
+    <!-- الشريط الجانبي -->
+    <aside class="sidebar" role="navigation" aria-label="القائمة الرئيسية">
+        <!-- الشعار -->
+        <div class="sidebar-header">
+            <a href="/" class="brand">
+                <img src="/assets/images/logo-light.svg" alt="SocialSense" class="brand-logo logo-light"
+                     width="120" height="32">
+                <img src="/assets/images/logo-dark.svg" alt="SocialSense" class="brand-logo logo-dark"
+                     width="120" height="32">
+            </a>
+        </div>
+
+        <!-- القائمة الرئيسية -->
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link active">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard/posts" class="nav-link">
+                        <i class="fas fa-newspaper" aria-hidden="true"></i>
+                        <span>المنشورات</span>
+                        <span class="badge">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard/analytics" class="nav-link">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <span>التحليلات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard/schedule" class="nav-link">
+                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                        <span>الجدولة</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard/campaigns" class="nav-link">
+                        <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                        <span>الحملات</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- قائمة ثانوية -->
+            <ul class="nav-list secondary">
+                <li class="nav-item">
+                    <a href="/dashboard/settings" class="nav-link">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard/help" class="nav-link">
+                        <i class="fas fa-question-circle" aria-hidden="true"></i>
+                        <span>المساعدة</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- معلومات المستخدم -->
+        <div class="sidebar-footer">
+            <div class="user-menu">
+                <button class="user-button" aria-expanded="false">
+                    <img src="/assets/images/avatar.jpg" alt="" class="user-avatar"
+                         width="32" height="32">
+                    <div class="user-info">
+                        <span class="user-name">أحمد محمد</span>
+                        <span class="user-email">ahmed@example.com</span>
+                    </div>
+                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="dashboard-main" role="main">
+        <!-- الهيدر -->
+        <header class="dashboard-header">
+            <div class="header-start">
+                <h1 class="page-title">لوحة التحكم</h1>
+            </div>
+            <div class="header-end">
+                <div class="header-actions">
+                    <!-- البحث -->
+                    <div class="search-box">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input type="search" placeholder="بحث سريع..." aria-label="بحث">
+                        <kbd class="search-shortcut">⌘K</kbd>
+                    </div>
+                    
+                    <!-- الإشعارات -->
+                    <button class="notifications-button" aria-label="الإشعارات">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="notifications-badge">5</span>
+                    </button>
+                    
+                    <!-- مبدل الوضع -->
+                    <button class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                        <i class="fas fa-sun sun-icon" aria-hidden="true"></i>
+                        <i class="fas fa-moon moon-icon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- محتوى الصفحة -->
+        <div class="dashboard-content">
+            <!-- البطاقات الإحصائية -->
+            <div class="stats-grid">
+                <div class="stat-card" data-theme-card>
+                    <div class="stat-icon">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 class="stat-title" data-i18n="followers">المتابعون</h3>
+                        <p class="stat-value">12,345</p>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +5.2%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-theme-card>
+                    <div class="stat-icon">
+                        <i class="fas fa-eye" aria-hidden="true"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 class="stat-title" data-i18n="views">المشاهدات</h3>
+                        <p class="stat-value">45,678</p>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +3.8%
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-theme-card>
+                    <div class="stat-icon">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 class="stat-title" data-i18n="engagement">التفاعل</h3>
+                        <p class="stat-value">8.5%</p>
+                        <span class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i>
+                            -1.2%
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المنشورات الأخيرة -->
+            <section class="content-section" aria-labelledby="recent-posts-title">
+                <div class="section-header">
+                    <h2 id="recent-posts-title" data-i18n="recent-posts">المنشورات الأخيرة</h2>
+                    <a href="/dashboard/posts" class="btn btn-outline" data-i18n="view-all">عرض الكل</a>
+                </div>
+                
+                <div class="posts-grid">
+                    <!-- بطاقة منشور -->
+                    <article class="post-card" data-theme-card>
+                        <div class="post-media">
+                            <img src="/assets/images/posts/post1.jpg" alt="" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-date">22 مارس 2024</span>
+                                <span class="post-platform">
+                                    <i class="fab fa-instagram"></i>
+                                    Instagram
+                                </span>
+                            </div>
+                            <p class="post-text">أحدث التقنيات في مجال الذكاء الاصطناعي...</p>
+                            <div class="post-stats">
+                                <span class="stat">
+                                    <i class="fas fa-heart"></i>
+                                    1.2K
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-comment"></i>
+                                    234
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-share"></i>
+                                    56
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- الجدول الزمني -->
+            <section class="content-section" aria-labelledby="schedule-title">
+                <div class="section-header">
+                    <h2 id="schedule-title" data-i18n="upcoming-posts">المنشورات القادمة</h2>
+                    <button class="btn btn-primary" data-i18n="new-post">
+                        <i class="fas fa-plus"></i>
+                        منشور جديد
+                    </button>
+                </div>
+                
+                <div class="schedule-timeline" data-theme-card>
+                    <!-- عنصر في الجدول الزمني -->
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00</div>
+                        <div class="timeline-content">
+                            <div class="timeline-platform">
+                                <i class="fab fa-twitter"></i>
+                                Twitter
+                            </div>
+                            <p class="timeline-text">نصائح لتحسين تواجدك على وسائل التواصل...</p>
+                            <div class="timeline-actions">
+                                <button class="btn btn-icon" aria-label="تعديل">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-icon" aria-label="حذف">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- السكربتات -->
+    <script src="/assets/js/dashboard.js" type="module"></script>
+</body>
+</html> 

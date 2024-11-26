@@ -1,0 +1,99 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --error-color: #ef4444;
+    --success-color: #22c55e;
+    --input-bg: #f9fafb;
+    --input-border: #e5e7eb;
+}
+
+[data-theme="dark"] {
+    --input-bg: #1f2937;
+    --input-border: #374151;
+}
+
+.auth-form-container {
+    background: var(--bg-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 480px;
+}
+
+.social-auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.social-auth-btn:hover {
+    background: var(--input-bg);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 2.5rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* تحريك الأيقونات داخل حقول الإدخال */
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+/* أنيميشن للأزرار */
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+}
+
+.btn-primary:hover::after {
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+} 

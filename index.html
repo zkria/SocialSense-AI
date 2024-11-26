@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="منصة متكاملة لإدارة حسابات التواصل الاجتماعي باستخدام الذكاء الاصطناعي">
+    <title>SocialSense AI - إدارة حسابات التواصل الاجتماعي</title>
+    
+    <!-- تجميع ملفات CSS الرئيسية -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
+    
+    <!-- مكونات CSS -->
+    <link rel="stylesheet" href="assets/css/components/header.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    
+    <!-- المكتبات الخارجية -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- إضافة ملف الترجمة -->
+    <script src="assets/js/i18n/translations.js"></script>
+    <script>
+        // تحديد اللغة الافتراضية
+        document.documentElement.lang = localStorage.getItem('language') || 'ar';
+        document.documentElement.dir = document.documentElement.lang === 'ar' ? 'rtl' : 'ltr';
+    </script>
+    
+    <!-- إضافة متغيرات CSS للألوان -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --nav-bg: #f8fafc;
+        }
+        
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --text-color: #f3f4f6;
+            --bg-color: #1f2937;
+            --nav-bg: #111827;
+        }
+    </style>
+    <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="main-nav">
+        <div class="nav-content">
+            <!-- الشعار -->
+            <div class="nav-right">
+                <a href="/" class="brand">
+                    <div class="ai-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span class="brand-text">SocialSense</span>
+                </a>
+            </div>
+
+            <!-- البحث -->
+            <div class="nav-center">
+                <div class="search-box" role="search">
+                    <input 
+                        type="search" 
+                        class="search-input" 
+                        placeholder="بحث سريع..."
+                        aria-label="بحث في الموقع"
+                    >
+                    <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <!-- أزرار التحكم -->
+            <div class="nav-left">
+                <div class="nav-controls">
+                    <div class="language-dropdown">
+                        <button class="lang-btn" aria-label="تغيير اللغة" aria-expanded="false">
+                            <img src="assets/images/flags/sa.png" alt="" class="flag-icon" id="currentFlag">
+                            <span class="lang-text" data-i18n="current-language">العربية</span>
+                            <i class="fas fa-chevron-down arrow-icon"></i>
+                        </button>
+                        <div class="language-menu" hidden>
+                            <button data-lang="ar" class="lang-option">
+                                <img src="assets/images/flags/sa.png" alt="">
+                                العربية
+                            </button>
+                            <button data-lang="en" class="lang-option">
+                                <img src="assets/images/flags/us.png" alt="">
+                                English
+                            </button>
+                        </div>
+                    </div>
+
+                    <button 
+                        class="theme-btn"
+                        aria-label="تبديل الوضع المظلم"
+                        data-theme-toggle
+                    >
+                        <i class="fas fa-moon" data-theme-icon></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- القسم الرئيسي -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>منصة متكاملة لإدارة<br>حسابات التواصل الاجتماعي</h1>
+                    <p class="hero-description">
+                        نساعدك في إدارة حساباتك الاجتماعية بذكاء وفعالية باستخدام أحدث تقنيات الذكاء الاصطناعي
+                    </p>
+                    <div class="hero-cta">
+                        <a href="/register" class="btn btn-primary">إنشاء حساب جديد</a>
+                        <a href="/login" class="btn btn-outline">تسجيل الدخول</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>عن المنصة</h3>
+                    <p>منصة متكاملة لإدارة حسابات التواصل الاجتماعي باستخدام تقنيات الذكاء الاصطناعي</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="تابعنا على تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="تابعنا على لينكد إن"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="تابعنا على انستغرام"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>الدعم</h3>
+                    <ul class="footer-links">
+                        <li><a href="/faq">الأسئلة الشائعة</a></li>
+                        <li><a href="/privacy">سياسة الخصوصية</a></li>
+                        <li><a href="/terms">الشروط والأحكام</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright-bar">
+            <div class="container">
+                <p>&copy; 2024 SocialSense. جميع الحقوق محفوظة</p>
+                <nav class="footer-nav">
+                    <a href="/privacy">سياسة الخصوصية</a>
+                    <span class="separator" aria-hidden="true">|</span>
+                    <a href="/terms">الشروط والأحكام</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- السكربتات -->
+    <script src="assets/js/theme-toggle.js" defer></script>
+    <script src="assets/js/language-switcher.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+:root {
+    /* الألوان الرئيسية */
+    --primary-hue: 157;
+    --primary-color: hsl(var(--primary-hue), 100%, 34%);
+    --primary-light: hsl(var(--primary-hue), 100%, 39%);
+    --primary-dark: hsl(var(--primary-hue), 100%, 29%);
+    --primary-fade: hsla(var(--primary-hue), 100%, 34%, 0.1);
+    
+    /* التدرجات اللونية */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), #009688);
+    --gradient-light: linear-gradient(135deg, var(--primary-light), #00b3a4);
+    --gradient-dark: linear-gradient(135deg, var(--primary-dark), #00796b);
+    
+    /* ألوان النصوص */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+    --text-inverse: #ffffff;
+    
+    /* ألوان الخلفيات */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+    --bg-fade: rgba(241, 245, 249, 0.8);
+    
+    /* ألوان الحدود */
+    --border-light: #e2e8f0;
+    --border-normal: #cbd5e1;
+    --border-dark: #94a3b8;
+    
+    /* ألوان الحالة */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #3b82f6;
+    
+    /* الظلال */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-primary: 0 4px 12px rgba(0, 173, 104, 0.15);
+    
+    /* المسافات */
+    --spacing-xs: 0.25rem;   /* 4px */
+    --spacing-sm: 0.5rem;    /* 8px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 3rem;     /* 48px */
+    
+    /* الزوايا */
+    --radius-sm: 0.25rem;    /* 4px */
+    --radius-md: 0.5rem;     /* 8px */
+    --radius-lg: 0.75rem;    /* 12px */
+    --radius-xl: 1rem;       /* 16px */
+    --radius-full: 9999px;
+    
+    /* الانتقالات */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* تخطيط الصفحة */
+    --header-height: 72px;
+    --container-width: 1200px;
+    --sidebar-width: 280px;
+}
+
+/* الوضع الداكن */
+[data-theme="dark"] {
+    /* ألوان النصوص */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+    
+    /* ألوان الخلفيات */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-fade: rgba(15, 23, 42, 0.8);
+    
+    /* ألوان الحدود */
+    --border-light: #1e293b;
+    --border-normal: #334155;
+    --border-dark: #475569;
+    
+    /* الظلال */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-primary: 0 4px 12px rgba(0, 173, 104, 0.3);
+}
+
+/* دعم الشاشات المختلفة */
+@media (max-width: 1200px) {
+    :root {
+        --container-width: 100%;
+        --sidebar-width: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 64px;
+        --sidebar-width: 100%;
+    }
+}
+
+/* تحسين الأداء */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-fast: 0s;
+        --transition-normal: 0s;
+        --transition-slow: 0s;
+    }
+}

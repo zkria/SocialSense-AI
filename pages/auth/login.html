@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تسجيل الدخول إلى SocialSense - منصة إدارة وسائل التواصل الاجتماعي">
+    <title>تسجيل الدخول | SocialSense AI</title>
+    
+    <!-- الأيقونات والشعارات -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- الأنماط -->
+    <link rel="stylesheet" href="/assets/css/auth.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- إضافة متغيرات CSS للألوان والثيمات -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --input-bg: #f9fafb;
+            --input-border: #e5e7eb;
+            --error-color: #ef4444;
+            --success-color: #22c55e;
+        }
+        
+        [data-theme="dark"] {
+            --text-color: #f3f4f6;
+            --bg-color: #111827;
+            --input-bg: #1f2937;
+            --input-border: #374151;
+        }
+    </style>
+    
+    <!-- إضافة ملف الترجمات -->
+    <script src="/assets/js/i18n/translations.js"></script>
+</head>
+
+<body class="auth-page">
+    <!-- الشريط العلوي -->
+    <header class="auth-header">
+        <div class="container">
+            <a href="/" class="brand" aria-label="الصفحة الرئيسية">
+                <img src="/assets/images/logo.svg" alt="SocialSense" class="brand-logo"
+                     width="120" height="32" data-logo>
+            </a>
+            <div class="header-actions">
+                <button class="theme-toggle" 
+                        aria-label="تبديل الوضع المظلم"
+                        data-theme-toggle>
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
+                
+                <div class="lang-switcher">
+                    <button class="lang-toggle" 
+                            aria-label="تغيير اللغة"
+                            aria-expanded="false"
+                            data-lang-toggle>
+                        <i class="fas fa-globe"></i>
+                        <span data-i18n="current-language">العربية</span>
+                    </button>
+                    <div class="lang-menu" hidden>
+                        <button data-lang="ar" class="lang-option">العربية</button>
+                        <button data-lang="en" class="lang-option">English</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="auth-container" role="main">
+        <div class="auth-wrapper">
+            <!-- نموذج تسجيل الدخول -->
+            <div class="auth-form-container">
+                <div class="auth-form-header">
+                    <h1 class="auth-title" data-i18n="welcome-back">مرحباً بعودتك!</h1>
+                    <p class="auth-subtitle" data-i18n="login-subtitle">سجل دخولك للوصول إلى حسابك</p>
+                </div>
+
+                <!-- خيارات تسجيل الدخول السريع -->
+                <div class="quick-auth">
+                    <button class="social-auth-btn google">
+                        <img src="/assets/images/google.svg" alt="" width="20" height="20">
+                        <span>المتابعة مع Google</span>
+                    </button>
+                    <button class="social-auth-btn apple">
+                        <img src="/assets/images/apple.svg" alt="" width="20" height="20">
+                        <span>المتابعة مع Apple</span>
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span>أو</span>
+                </div>
+
+                <!-- نموذج تسجيل الدخول -->
+                <form action="/login" method="POST" id="loginForm" class="auth-form" novalidate>
+                    <div class="form-group">
+                        <label for="email" class="form-label">البريد الإلكتروني</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   class="form-input"
+                                   placeholder="أدخل بريدك الإلكتروني"
+                                   autocomplete="email"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="password-header">
+                            <label for="password" class="form-label">كلمة المرور</label>
+                            <a href="/auth/forgot-password" class="forgot-password">نسيت كلمة المرور؟</a>
+                        </div>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+                            <input type="password" 
+                                   id="password" 
+                                   name="password" 
+                                   class="form-input"
+                                   placeholder="أدخل كلمة المرور"
+                                   autocomplete="current-password"
+                                   required>
+                            <button type="button" 
+                                    class="password-toggle" 
+                                    aria-label="إظهار كلمة المرور">
+                                <i class="fas fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" name="remember" id="remember">
+                            <span class="checkbox-label">تذكرني</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span>تسجيل الدخول</span>
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    ليس لديك حساب؟
+                    <a href="/register">إنشاء حساب جديد</a>
+                </div>
+            </div>
+
+            <!-- الصورة التوضيحية -->
+            <div class="auth-visual" aria-hidden="true">
+                <img src="/assets/images/auth-illustration.svg" 
+                     alt=""
+                     class="auth-image"
+                     width="500" 
+                     height="400">
+                <div class="visual-pattern"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- السكرب��ات -->
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/i18n/translations.js"></script>
+</body>
+</html>

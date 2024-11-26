@@ -1,0 +1,138 @@
+/* المتغيرات الأساسية */
+:root {
+    --logo-size: 40px;
+    --logo-radius: 10px;
+    --logo-bg: linear-gradient(135deg, #00AD68, #009688);
+    --logo-shadow: 0 4px 12px rgba(0, 173, 104, 0.15);
+    --brand-gap: 0.875rem;
+    --brand-font-size: 1.3rem;
+}
+
+/* تنسيق الشعار الرئيسي */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: var(--brand-gap);
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: var(--logo-radius);
+    transition: transform 0.3s ease;
+}
+
+/* أيقونة الشعار */
+.logo-icon {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--logo-bg);
+    border-radius: var(--logo-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+/* أيقونة الذكاء الاصطناعي */
+.logo-icon i {
+    color: white;
+    font-size: calc(var(--logo-size) * 0.45);
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* تأثير التوهج */
+.logo-glow {
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+/* اسم العلامة التجارية */
+.brand-name {
+    font-size: var(--brand-font-size);
+    font-weight: 700;
+    background: linear-gradient(135deg, #00AD68, #009688);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+/* تأثيرات التحويم */
+.brand:hover {
+    transform: translateY(-1px);
+}
+
+.brand:hover .logo-icon {
+    box-shadow: var(--logo-shadow);
+}
+
+.brand:hover .logo-glow {
+    opacity: 0.6;
+}
+
+/* تأثير النقر */
+.brand:active {
+    transform: scale(0.98);
+}
+
+/* تأثير النبض */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.brand.animate .logo-icon {
+    animation: pulse 1s ease infinite;
+}
+
+/* الوضع الداكن */
+[data-theme="dark"] {
+    --logo-shadow: 0 4px 12px rgba(0, 173, 104, 0.3);
+}
+
+[data-theme="dark"] .brand-name {
+    background: linear-gradient(135deg, #00c77a, #00b3a4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* التجاوب مع الشاشات */
+@media (max-width: 768px) {
+    :root {
+        --logo-size: 36px;
+        --brand-font-size: 1.2rem;
+        --brand-gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-name {
+        display: none;
+    }
+    
+    .brand {
+        padding: 0.25rem;
+    }
+}
+
+/* تحسين الأداء */
+@media (prefers-reduced-motion: reduce) {
+    .brand,
+    .logo-icon,
+    .logo-glow {
+        transition: none;
+    }
+    
+    .brand.animate .logo-icon {
+        animation: none;
+    }
+}
+
+/* دعم RTL */
+[dir="rtl"] .brand {
+    flex-direction: row-reverse;
+} 

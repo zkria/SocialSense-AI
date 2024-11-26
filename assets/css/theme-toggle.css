@@ -1,0 +1,163 @@
+/* المتغيرات الأساسية */
+:root {
+    --toggle-size: 44px;
+    --icon-size: 22px;
+    --sun-color: #fbbf24;
+    --moon-color: #60a5fa;
+    --glow-opacity: 0.15;
+    --toggle-duration: 0.4s;
+}
+
+/* زر تبديل الوضع */
+.theme-toggle {
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    background: var(--bg-secondary);
+    position: relative;
+    cursor: pointer;
+    isolation: isolate;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+/* حاوية الأيقونات */
+.toggle-icons {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* الأيقونات المشتركة */
+.sun-icon,
+.moon-icon {
+    position: absolute;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--toggle-duration) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* أيقونة الشمس */
+.sun-icon {
+    color: var(--sun-color);
+    transform-origin: center;
+}
+
+.sun-icon::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(
+        circle at center,
+        var(--sun-color) 0%,
+        transparent 70%
+    );
+    opacity: var(--glow-opacity);
+    transition: opacity var(--toggle-duration) ease;
+}
+
+/* أيقونة القمر */
+.moon-icon {
+    color: var(--moon-color);
+    transform-origin: center;
+}
+
+.moon-icon::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(
+        circle at 70% 30%,
+        var(--moon-color) 0%,
+        transparent 70%
+    );
+    opacity: var(--glow-opacity);
+    transition: opacity var(--toggle-duration) ease;
+}
+
+/* تأثير الخلفية */
+.toggle-background {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-secondary);
+    transition: all var(--toggle-duration) ease;
+}
+
+/* حالات الوضع الفاتح */
+[data-theme="light"] {
+    & .sun-icon {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+    
+    & .moon-icon {
+        transform: scale(0.5) rotate(-90deg);
+        opacity: 0;
+    }
+    
+    & .sun-icon::before {
+        opacity: var(--glow-opacity);
+    }
+}
+
+/* حالات الوضع الداكن */
+[data-theme="dark"] {
+    & .sun-icon {
+        transform: scale(0.5) rotate(90deg);
+        opacity: 0;
+    }
+    
+    & .moon-icon {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+    
+    & .moon-icon::before {
+        opacity: var(--glow-opacity);
+    }
+    
+    & .toggle-background {
+        background: var(--bg-tertiary);
+    }
+}
+
+/* تأثيرات التحويم */
+.theme-toggle:hover {
+    border-color: var(--primary-color);
+    
+    & .toggle-background {
+        background: var(--bg-tertiary);
+    }
+    
+    & .sun-icon::before,
+    & .moon-icon::before {
+        opacity: calc(var(--glow-opacity) * 2);
+    }
+}
+
+/* تأثير النقر */
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* تحسين الأداء */
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .sun-icon,
+    .moon-icon,
+    .toggle-background {
+        transition: none !important;
+    }
+}
+
+/* دعم RTL */
+[dir="rtl"] .theme-toggle {
+    transform-origin: center;
+} 

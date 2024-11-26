@@ -1,0 +1,232 @@
+/* المتغيرات الأساسية */
+:root {
+    --header-height: 72px;
+    --header-bg: rgba(255, 255, 255, 0.98);
+    --header-border: rgba(0, 0, 0, 0.06);
+    --search-bg: #f1f5f9;
+    --search-text: #1e293b;
+    --search-placeholder: #64748b;
+    --btn-border: #e2e8f0;
+}
+
+/* الشريط العلوي */
+.main-nav {
+    height: var(--header-height);
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--header-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* الشعار */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.ai-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00AD68, #009688);
+    border-radius: 10px;
+    color: white;
+    position: relative;
+}
+
+.ai-icon i {
+    font-size: 1.25rem;
+    z-index: 1;
+}
+
+.ai-glow {
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    border-radius: inherit;
+    filter: blur(8px);
+    opacity: 0.4;
+}
+
+.brand-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* شريط البحث */
+.search-box {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background: var(--search-bg);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.search-box:focus-within {
+    background: white;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.search-icon {
+    color: var(--search-placeholder);
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+.search-input {
+    border: none;
+    background: none;
+    width: 100%;
+    padding: 0 0.5rem;
+    color: var(--search-text);
+    font-size: 0.95rem;
+}
+
+/* أزرار التحكم */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* زر اللغة */
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: white;
+    border: 1px solid var(--btn-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.flag-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.lang-text {
+    font-size: 0.9rem;
+    color: var(--search-text);
+}
+
+.arrow-icon {
+    font-size: 0.8rem;
+    color: var(--search-placeholder);
+    transition: transform 0.2s ease;
+}
+
+/* زر الوضع الداكن */
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--btn-border);
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-btn i {
+    font-size: 1.1rem;
+    color: var(--search-placeholder);
+}
+
+/* الوضع الداكن */
+[data-theme="dark"] {
+    --header-bg: rgba(15, 23, 42, 0.98);
+    --header-border: rgba(255, 255, 255, 0.1);
+    --search-bg: rgba(255, 255, 255, 0.05);
+    --search-text: #e2e8f0;
+    --search-placeholder: #94a3b8;
+    --btn-border: rgba(255, 255, 255, 0.1);
+}
+
+/* التجاوب مع الشاشات */
+@media (max-width: 768px) {
+    .nav-content {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .brand-text {
+        display: none;
+    }
+
+    .search-box {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-box {
+        display: none;
+    }
+}
+
+.top-bar {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.brand-name {
+    color: white;
+    font-weight: 600;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: white;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.controls button:hover {
+    opacity: 1;
+}
+
+/* تحسين قائمة اللغات */
+.lang-dropdown {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-option {
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.lang-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}

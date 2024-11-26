@@ -1,0 +1,219 @@
+/* المتغيرات الأساسية */
+:root {
+    --footer-bg: #f8f9fa;
+    --footer-text: #64748b;
+    --footer-heading: #1e293b;
+    --footer-link: #64748b;
+    --footer-link-hover: #00AD68;
+    --footer-border: #e2e8f0;
+    --footer-social-bg: #ffffff;
+    --footer-padding: 4rem;
+}
+
+/* الفوتر الرئيسي */
+.footer {
+    background-color: var(--footer-bg);
+    padding-top: var(--footer-padding);
+    position: relative;
+}
+
+/* شبكة الفوتر */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* أقسام الفوتر */
+.footer-section h3 {
+    color: var(--footer-heading);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.footer-section p {
+    color: var(--footer-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* روابط الفوتر */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.footer-links li:hover {
+    transform: translateX(-5px);
+}
+
+.footer-links a {
+    color: var(--footer-link);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links a:hover {
+    color: var(--footer-link-hover);
+}
+
+.footer-links a::before {
+    content: '\f054';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+}
+
+/* روابط التواصل الاجتماعي */
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--footer-social-bg);
+    border-radius: 10px;
+    color: var(--footer-text);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+    top: 0;
+    left: 0;
+}
+
+/* شريط حقوق النشر */
+.copyright-bar {
+    background-color: white;
+    border-top: 1px solid var(--footer-border);
+    padding: 1.25rem 0;
+}
+
+.copyright-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--footer-text);
+    font-size: 0.9rem;
+}
+
+.footer-extra-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-extra-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.footer-extra-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary-color);
+    transition: width 0.2s ease;
+}
+
+.footer-extra-links a:hover::after {
+    width: 100%;
+}
+
+/* الوضع الداكن */
+[data-theme="dark"] {
+    --footer-bg: #1a1f2e;
+    --footer-text: #94a3b8;
+    --footer-heading: #f1f5f9;
+    --footer-link: #94a3b8;
+    --footer-border: #2d3748;
+    --footer-social-bg: #2d3748;
+}
+
+/* التجاوب مع الشاشات */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .copyright-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-extra-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+/* دعم RTL */
+[dir="rtl"] .footer-links li:hover {
+    transform: translateX(5px);
+}
+
+[dir="rtl"] .footer-section h3::after {
+    right: auto;
+    left: 0;
+}

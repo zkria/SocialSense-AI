@@ -1,0 +1,33 @@
+.language-switcher {
+    position: relative;
+}
+
+.language-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-dropdown);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+}
+
+[data-lang-option] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+[data-lang-option]:hover {
+    background-color: var(--bg-hover);
+}
+
+/* دعم RTL */
+[dir="rtl"] .language-menu {
+    right: auto;
+    left: 0;
+} 

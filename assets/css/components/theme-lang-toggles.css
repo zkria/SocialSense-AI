@@ -1,0 +1,177 @@
+/* المتغيرات الأساسية */
+:root {
+    --toggle-size: 40px;
+    --toggle-radius: 8px;
+    --toggle-border: #e2e8f0;
+    --toggle-bg: #ffffff;
+    --sun-color: #fbbf24;
+    --moon-color: #2563eb;
+    --lang-padding: 0.625rem 1rem;
+}
+
+/* زر تبديل الوضع */
+.theme-btn {
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    border-radius: var(--toggle-radius);
+    border: 1px solid var(--toggle-border);
+    background: var(--toggle-bg);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* حاوية الأيقونات */
+.theme-icons {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* أيقونات الشمس والقمر */
+.sun-icon,
+.moon-icon {
+    position: absolute;
+    font-size: 1.25rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sun-icon {
+    color: var(--sun-color);
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+
+.moon-icon {
+    color: var(--moon-color);
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+}
+
+/* تأثير التوهج */
+.theme-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, 
+        rgba(251, 191, 36, 0.15) 0%, 
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* زر تبديل اللغة */
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: var(--lang-padding);
+    background: var(--toggle-bg);
+    border: 1px solid var(--toggle-border);
+    border-radius: var(--toggle-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* أيقونة العلم */
+.flag-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* نص اللغة */
+.lang-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* أيقونة السهم */
+.arrow-icon {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+}
+
+/* تأثيرات التحويم */
+.theme-btn:hover {
+    border-color: var(--primary-color);
+}
+
+.theme-btn:hover .theme-glow {
+    opacity: 1;
+}
+
+.lang-btn:hover {
+    border-color: var(--primary-color);
+}
+
+.lang-btn:hover .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* الوضع الداكن */
+[data-theme="dark"] {
+    --toggle-bg: rgba(255, 255, 255, 0.05);
+    --toggle-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .sun-icon {
+    opacity: 0;
+    transform: scale(0.5) rotate(45deg);
+}
+
+[data-theme="dark"] .moon-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+
+[data-theme="dark"] .theme-glow {
+    background: radial-gradient(circle at center, 
+        rgba(37, 99, 235, 0.15) 0%, 
+        transparent 70%
+    );
+}
+
+/* تأثير النقر */
+.theme-btn:active,
+.lang-btn:active {
+    transform: scale(0.95);
+}
+
+/* التجاوب مع الشاشات */
+@media (max-width: 768px) {
+    :root {
+        --toggle-size: 36px;
+        --lang-padding: 0.5rem 0.75rem;
+    }
+
+    .lang-text {
+        display: none;
+    }
+}
+
+/* تحسين الأداء */
+@media (prefers-reduced-motion: reduce) {
+    .theme-btn,
+    .lang-btn,
+    .sun-icon,
+    .moon-icon,
+    .arrow-icon {
+        transition: none;
+    }
+}
+
+/* دعم RTL */
+[dir="rtl"] .lang-btn {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .arrow-icon {
+    transform: rotate(180deg);
+} 

@@ -1,0 +1,199 @@
+<header class="main-header" role="banner" data-theme-header>
+    <!-- الشريط العلوي -->
+    <div class="top-bar" data-theme-topbar>
+        <div class="container">
+            <div class="announcement" role="alert">
+                <i class="fas fa-sparkles" aria-hidden="true"></i>
+                <span data-i18n="announcement">ميزات جديدة متوفرة الآن! اكتشف قوة الذكاء الاصطناعي</span>
+                <a href="/whats-new" class="announcement-link" data-i18n="learn-more">تعرف على المزيد</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- التنقل الرئيسي -->
+    <nav class="main-nav" role="navigation" aria-label="القائمة الرئيسية" data-theme-nav>
+        <div class="container">
+            <div class="nav-content">
+                <!-- القسم الأيمن -->
+                <div class="nav-start">
+                    <div class="ai-badge" data-theme-badge aria-hidden="true">
+                        <div class="ai-icon">
+                            <i class="fas fa-brain"></i>
+                            <div class="ai-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- الشعار مع دعم الوضع الداكن -->
+                    <a href="/" class="brand" aria-label="الصفحة الرئيسية">
+                        <picture>
+                            <source srcset="/assets/images/logo-dark.svg" media="(prefers-color-scheme: dark)">
+                            <img src="/assets/images/logo-light.svg" 
+                                 alt="SocialSense" 
+                                 class="brand-logo"
+                                 width="120" 
+                                 height="32"
+                                 data-theme-logo>
+                        </picture>
+                        <span class="brand-badge">AI</span>
+                    </a>
+
+                    <!-- القائمة الرئيسية -->
+                    <nav class="primary-nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="/features" class="nav-link" data-i18n="features">المميزات</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/pricing" class="nav-link" data-i18n="pricing">الأسعار</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/docs" class="nav-link" data-i18n="docs">الوثائق</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- القسم الأيسر -->
+                <div class="nav-end">
+                    <!-- البحث المحسن -->
+                    <div class="search-wrapper">
+                        <button class="search-trigger" 
+                                aria-label="فتح البحث" 
+                                aria-expanded="false" 
+                                aria-controls="searchModal"
+                                data-theme-button>
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <span class="search-label" data-i18n="search">بحث</span>
+                            <kbd class="search-shortcut" data-i18n="search-shortcut">⌘K</kbd>
+                        </button>
+                    </div>
+
+                    <!-- عناصر التحكم المحسنة -->
+                    <div class="nav-controls">
+                        <!-- مبدل الوضع المحسن -->
+                        <button class="theme-toggle" 
+                                aria-label="تبديل الوضع المظلم"
+                                data-theme-toggle>
+                            <span class="theme-toggle-icons">
+                                <i class="fas fa-sun sun-icon" aria-hidden="true"></i>
+                                <i class="fas fa-moon moon-icon" aria-hidden="true"></i>
+                            </span>
+                            <span class="toggle-glow"></span>
+                        </button>
+
+                        <!-- مبدل اللغة المحسن -->
+                        <div class="lang-switcher" data-theme-dropdown>
+                            <button class="lang-toggle" 
+                                    aria-expanded="false" 
+                                    aria-controls="langDropdown"
+                                    data-lang-toggle>
+                                <i class="fas fa-globe" aria-hidden="true"></i>
+                                <span class="current-lang" data-i18n="current-language">العربية</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="lang-dropdown" id="langDropdown" role="menu" hidden>
+                                <a href="#" class="lang-option" role="menuitem" data-lang="ar">
+                                    <img src="/assets/images/flags/ar.svg" alt="" width="20" height="15">
+                                    <span class="lang-name">العربية</span>
+                                </a>
+                                <a href="#" class="lang-option" role="menuitem" data-lang="en">
+                                    <img src="/assets/images/flags/en.svg" alt="" width="20" height="15">
+                                    <span class="lang-name">English</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <a href="/login" class="btn btn-primary" data-i18n="login">تسجيل الدخول</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar"></div>
+    </div>
+</header>
+
+<style>
+    /* متغيرات CSS المحسنة */
+    :root {
+        --header-bg: rgba(255, 255, 255, 0.8);
+        --nav-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --dropdown-bg: #ffffff;
+        --topbar-bg: var(--primary-color);
+        --button-hover: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+        --header-bg: rgba(17, 24, 39, 0.8);
+        --nav-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --dropdown-bg: #1f2937;
+        --button-hover: rgba(255, 255, 255, 0.1);
+    }
+
+    /* تحسينات التصميم */
+    [data-theme-header] {
+        background: var(--header-bg);
+        backdrop-filter: blur(10px);
+        transition: background-color 0.3s ease;
+    }
+
+    [data-theme-nav] {
+        box-shadow: var(--nav-shadow);
+    }
+
+    [data-theme-button] {
+        background: transparent;
+        transition: background-color 0.2s ease;
+    }
+
+    [data-theme-button]:hover {
+        background: var(--button-hover);
+    }
+
+    [data-theme-dropdown] {
+        background: var(--dropdown-bg);
+        border: 1px solid var(--border-color);
+    }
+
+    [data-theme-badge] {
+        background: var(--primary-gradient);
+    }
+
+    .theme-toggle {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .toggle-glow {
+        position: absolute;
+        inset: 0;
+        background: var(--primary-gradient);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .theme-toggle:hover .toggle-glow {
+        opacity: 0.2;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition-duration: 0.01ms !important;
+        }
+    }
+</style>
+
+<!-- نافذة البحث -->
+<div id="searchModal" class="search-modal" role="dialog" aria-label="البحث" hidden>
+    <div class="search-container">
+        <div class="search-header">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="search" class="search-input" placeholder="ابحث في المنصة..."
+                   aria-label="ابحث في المنصة">
+            <kbd class="search-shortcut">ESC</kbd>
+        </div>
+        <div class="search-results" role="listbox"></div>
+    </div>
+</div> 
